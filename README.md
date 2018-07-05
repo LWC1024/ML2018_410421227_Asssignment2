@@ -2,17 +2,17 @@
 Machine Learning - Programming Asssignment2
 ****
 ## 目錄
-* [A. The way i prepare the training samples](#The way i prepare the training samples)
-* [B. All parameters i used for the training algorithm](#All parameters i used for the training algorithm)
-* [C. Model summary](#Model summary)
-* [D. Training result](#Training result)
-* [E. Confusion matrix](#Confusion matrix)
-* [F. The problems i encountered](#The problems i encountered)
-* [F. I learned from this work](#I learned from this work)
+* [The way i prepare the training samples](#The way i prepare the training samples)
+* [All parameters i used for the training algorithm](#All parameters i used for the training algorithm)
+* [Model summary](#Model summary)
+* [Training result](#Training result)
+* [Confusion matrix](#Confusion matrix)
+* [The problems i encountered](#The problems i encountered)
+* [I learned from this work](#I learned from this work)
 ****
-## A. The way i prepare the training samples
+## The way i prepare the training samples
   嘗試了 MLP ，但因 CNN 在圖像辨識上有明顯的優勢，最後選擇使用 CNN 完成
-## B. All parameters i used for the training algorithm
+## All parameters i used for the training algorithm
 dim_ordering = th
     輸入數據格式為[samples][channels][rows][cols] 
 channels = 1
@@ -49,15 +49,15 @@ batch_size = 200
     每處理200個圖片進行一次權重更新
 verbose = 2
     每個訓練週期完成後只輸出一條日誌
-## C. Model summary
+## Model summary
 ![](https://github.com/LWC1024/ML2018_410421227_Asssignment2/blob/master/result/model.jpg "CNN 模型")
-## D. Training result
+## Training result
 ![](https://github.com/LWC1024/ML2018_410421227_Asssignment2/blob/master/result/result.jpg "訓練過程")
 ![](https://github.com/LWC1024/ML2018_410421227_Asssignment2/blob/master/result/acc_99.2%25.png "ACC")
 ![](https://github.com/LWC1024/ML2018_410421227_Asssignment2/blob/master/result/loss_2.52%25.png "LOSS")
-## E. Confusion matrix
+## Confusion matrix
 ![](https://github.com/LWC1024/ML2018_410421227_Asssignment2/blob/master/result/confusion%20matrix.jpg "混淆矩陣")
-## F. The problems i encountered
+## The problems i encountered
 * ACC成果不理想
 * overfitting
 ## G. I learned from this work
