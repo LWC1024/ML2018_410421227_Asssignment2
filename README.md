@@ -23,7 +23,8 @@ border_mode 採集圖片邊緣特徵的模式 = valid
 activation 激勵函數 = relu
 
 **model.add - MaxPooling2D 匯集層 :**  
-pool_size 窗口大小 = 2*2  
+pool_size 窗口大小 = 2*2
+
 **model.add - Dropout = 0.2**  
 ```
 隨機踢出的機率  
@@ -72,6 +73,4 @@ verbose = 2
 * ACC成果不理想
 * overfitting
 ## G. I learned from this work
-```
 也許是因為已經有了一次的經驗，加上上學期上過人工智慧，所以這次Github的操作和MNIST的訓練順利很多，少數幾個癥結點是一開始參數設定不太理想，導致結果的準確度不太高，經過多次實驗，加上上網找一些文章，一步一腳印的訓練出這次滿意的結果，CNN真的無所不在，希望還能再學多一些。
-```
