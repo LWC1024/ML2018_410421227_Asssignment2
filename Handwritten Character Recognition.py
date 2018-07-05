@@ -99,10 +99,10 @@ print("\n")
 
 print("==========================================STEP 5. 建立模型==========================================")
 model = Sequential()  # 建立線性模型
-model.add(Conv2D(30, (5, 5), border_mode='valid',
+model.add(Conv2D(30, 5, 5, border_mode='valid',
                         input_shape=(1, 28, 28), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Conv2D(15, (3, 3), activation='relu'))
+model.add(Conv2D(15, 3, 3, activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.2))
 model.add(Flatten())
@@ -127,7 +127,7 @@ model.compile(loss='categorical_crossentropy',
 
 # 開始訓練
 train_history = model.fit(X_Train_norm, Y_Train_OneHot,
-                          validation_split=0.2, epochs=10, batch_size=200, verbose=2)
+                          validation_split=0.2, epochs=15, batch_size=200, verbose=2)
 
 # 建立 show_train_history 顯示訓練過程
 def show_train_history(train_history, train, validation):
@@ -139,6 +139,10 @@ def show_train_history(train_history, train, validation):
     plt.legend(['train', 'validation'], loc='upper left')
     plt.show()
 
+# 評估模型準確率
+scores = model.evaluate(X_Test_norm, Y_Test_OneHot)
+
+print("[Info] Accuracy of testing data = {:2.1f}%".format(scores[1]*100.0))
 
 show_train_history(train_history, 'acc', 'val_acc')
 show_train_history(train_history, 'loss', 'val_loss')
@@ -146,13 +150,6 @@ show_train_history(train_history, 'loss', 'val_loss')
 print("\n")
 
 print("================================STEP 7. 以測試資料評估模型準確率與預測================================")
-# 評估模型準確率
-scores = model.evaluate(X_Test_norm, Y_Test_OneHot)
-print("")
-print("[Info] Accuracy of testing data = {:2.1f}%".format(scores[1]*100.0))
-
-print("\n")
-
 # 進行預測
 print("[Info] Making prediction to X_Test_norm")
 prediction = model.predict_classes(X_Test_norm)  # 進行預測並把結果儲存到預測中
